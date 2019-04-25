@@ -105,50 +105,65 @@ class Customer extends Component {
     render(){
         return(
             <div>
-                {
+              <table>
+                <thead>
+                  <tr>
+                    <th>S. No</th>
+                    <th>Customer Name</th>
+                    <th>Transaction One</th>
+                    <th>Transaction Two</th>
+                    <th>Transaction Three</th>
+                    <th>Transaction Four</th>
+                    <th>Total points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
                     this.state.cus.map((cust, l) => {
-                        let totalPoints = []
-                        return (
-                            <div  className="customer" key={l}>
-                                <p>Customer name: {cust.CustomerName}</p>
-                                {
-                                    cust.txnSummary.map((summ, k) => {
-                                        return (
-                                            <div key={k}>
-                                                
-                                                {
-                                                    summ.products.map((pro, p) => {
-                                                        let monthPoints = null
-                                                        if(pro.amount > 50 && pro.amount <= 100){
-                                                            monthPoints = (pro.amount - 50) * 1
-                                                            totalPoints.push((pro.amount - 50) * 1)
-                                                        } else if(pro.amount > 50 && pro.amount > 100){
-                                                            monthPoints = ((pro.amount - 50) * 1) + ((pro.amount - 100) * 2)
-                                                            totalPoints.push(((pro.amount - 50) * 1) + ((pro.amount - 100) * 2))
-                                                        } else {
-                                                            monthPoints = 0
-                                                        }
-                                                        return (
-                                                            <div key={p}>
-                                                           TransactioId: {pro.TransactionId}<br />
-                                                            ProductName:{pro.name} <br />AmountPurchased:{pro.amount}$<br />  PointsEarnedonProduct: {monthPoints}
-                                                            </div>
-                                                        )
-                                                    })
-                                                }
-                                            </div>
-                                        )
-                                    })
-                                }
-                                Total Earned Points on All Products: {
-                                    totalPoints.reduce((a, b) => {
-                                        return a + b
-                                    })
-                                }
-                            </div>
-                        )
+                      let totalPoints = []
+                      return (
+                        <tr key={l}>
+                          <td>{l + 1}</td>
+                          <td>{cust.CustomerName}</td>
+                          {
+                            cust.txnSummary.map((summ, h) => {
+                              return summ.products.map((pro, p) => {
+                                let monthPoints = null
+                                  if(pro.amount > 50 && pro.amount <= 100){
+                                      monthPoints = (pro.amount - 50) * 1
+                                      totalPoints.push((pro.amount - 50) * 1)
+                                  } else if(pro.amount > 50 && pro.amount > 100){
+                                      monthPoints = ((pro.amount - 50) * 1) + ((pro.amount - 100) * 2)
+                                      totalPoints.push(((pro.amount - 50) * 1) + ((pro.amount - 100) * 2))
+                                  } else {
+                                      monthPoints = 0
+                                  }
+                                  return (
+                                    <td key={p}>
+                                      <ul>
+                                        <li>TransactionId: {pro.TransactionId}</li>
+                                        <li>ProductName: {pro.name}</li>
+                                        <li>AmountPurchased: {pro.amount}</li>
+                                        <li>PointsEarnedonProduct: {monthPoints}</li>
+                                      </ul>
+                                    </td>
+                                  )
+                              })
+                            })
+                          }
+                          <td>
+                            {
+                              totalPoints.reduce((a, b) => {
+                                return a + b
+                            })
+                            }
+                          </td>
+                        </tr>
+                      )
                     })
-                }
+                  }
+                </tbody>
+              </table>
             </div>
         )
     }
