@@ -10,12 +10,12 @@ class Customer extends Component {
                     "products": [
                       {
                         "TransactionId": 1,
-                        "name": "Biscuits:",
+                        "name": "Biscuits",
                         "amount": 100
                       },
                       {
                         "TransactionId": 2,
-                        "name": "Honey:",
+                        "name": "Honey",
                         "amount": 200
                       }
                     ],
@@ -24,12 +24,12 @@ class Customer extends Component {
                     "products": [
                       {
                         "TransactionId": 3,
-                        "name": "Biscuits",
+                        "name": "Fruits",
                         "amount": 400
                       },
                       {
                         "TransactionId": 4,
-                        "name": "Honey",
+                        "name": "Soaps",
                         "amount": 500
                       }
                     ],
@@ -42,12 +42,12 @@ class Customer extends Component {
                   "products": [
                     {
                       "TransactionId": 1,
-                      "name": "Mobiles:",
+                      "name": "Mobiles",
                       "amount": 600
                     },
                     {
                       "TransactionId": 2,
-                      "name": "Refrigirator:",
+                      "name": "Refrigirator",
                       "amount": 150
                     }
                   ],
@@ -74,12 +74,12 @@ class Customer extends Component {
                   "products": [
                     {
                       "TransactionId": 1,
-                      "name": "MensShoes:",
+                      "name": "MensShoes",
                       "amount": 130
                     },
                     {
                       "TransactionId": 2,
-                      "name": "WomenShoes:",
+                      "name": "WomenShoes",
                       "amount": 140
                     }
                   ],
@@ -114,7 +114,7 @@ class Customer extends Component {
                     <th>Transaction Two</th>
                     <th>Transaction Three</th>
                     <th>Transaction Four</th>
-                    <th>Total points</th>
+                    <th>Total points Earned</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -143,7 +143,7 @@ class Customer extends Component {
                                       <ul>
                                         <li>TransactionId: {pro.TransactionId}</li>
                                         <li>ProductName: {pro.name}</li>
-                                        <li>AmountPurchased: {pro.amount}</li>
+                                        <li>AmountPurchased: {pro.amount}$</li>
                                         <li>PointsEarnedonProduct: {monthPoints}</li>
                                       </ul>
                                     </td>
