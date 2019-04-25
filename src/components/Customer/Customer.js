@@ -151,7 +151,7 @@ class Customer extends Component {
                               })
                             })
                           }
-                          <td>
+                          <td className="alignBottom">
                             {
                               totalPoints.reduce((a, b) => {
                                 return a + b
